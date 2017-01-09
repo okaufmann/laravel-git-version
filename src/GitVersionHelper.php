@@ -7,7 +7,7 @@ class GitVersionHelper
 {
     private static function versionFile()
     {
-        return base_path() . '/version';
+        return base_path().'/version';
     }
 
     private static function appName()
@@ -25,7 +25,7 @@ class GitVersionHelper
      * describe` fails
      * @return string Version string
      */
-    public static function getVersion()
+    public static function getVersion($withDirty = false)
     {
         // If we have a version file, just return its contents
         if (file_exists(self::versionFile())) {
@@ -39,7 +39,11 @@ class GitVersionHelper
         chdir(base_path());
 
         // Get version string from git
-        $output = shell_exec('git describe --always --tags --dirty');
+        if ($withDirty) {
+            $output = shell_exec('git describe --always --tags --dirty');
+        } else {
+            $output = shell_exec('git describe --always --tags');
+        }
 
         // Change back
         chdir($dir);
@@ -61,9 +65,9 @@ class GitVersionHelper
      */
     public static function getNameAndVersion()
     {
-        return self::appName() . '/' . self::getVersion();
+        return self::appName().'/'.self::getVersion();
     }
-    
+
     /**
      * Return commit hash with custom length
      *
@@ -73,7 +77,7 @@ class GitVersionHelper
      * @return string
      *
      */
-    public static function getHash($length=null)
+    public static function getHash($length = null)
     {
         // Remember current directory
         $dir = getcwd();
@@ -91,10 +95,10 @@ class GitVersionHelper
             throw new Exception\CouldNotGetCommitHashException;
         }
 
-        if($length) {
+        if ($length) {
             $commit = substr($commit, 0, $length);
         }
-        
+
         return $commit;
     }
 }
