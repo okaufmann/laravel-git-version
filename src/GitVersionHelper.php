@@ -1,7 +1,9 @@
 <?php
+
 namespace Tremby\LaravelGitVersion;
 
 use Config;
+use Tremby\LaravelGitVersion\Exception\CouldNotGetVersionException;
 
 class GitVersionHelper
 {
@@ -100,5 +102,13 @@ class GitVersionHelper
         }
 
         return $commit;
+    }
+
+    public static function bumpVersion()
+    {
+        $file = static::versionFile();
+        $version = static::getNameAndVersion();
+
+        file_put_contents($file, $version);
     }
 }
