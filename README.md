@@ -6,6 +6,10 @@ A helper class to get the current git version of the project.
 Expects either a `version` file to exist in the `base_path()` of your project
 containing a version string, or the `git` binary to be available.
 
+**This is my own for to match my needs**
+Originally initiated by [@tremby](https://github.com/tremby/laravel-git-version)
+Consider contribute to his version.
+
 Laravel version
 ---------------
 
@@ -16,7 +20,7 @@ Installation
 
 Require it in your Laravel project:
 
-    composer require tremby/laravel-git-version
+    composer require okaufmann/laravel-git-version
 
 Use
 ---
@@ -37,6 +41,13 @@ Also, you can get the latest commit hash by calling this method:
 
 The app's name is taken from `Config::get('app.name', 'app')`, so you can
 configure it in your `config/app.php` file or leave it as the default of `app`.
+
+### Command
+On releasing a new version of you app run the following commands to tag a new version and create a file with the correct version info:
+```commandline
+ git tag v0.0.3
+ php artisan version:bump
+ ```
 
 ### Recommended usage pattern
 
