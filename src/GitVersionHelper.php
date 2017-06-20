@@ -107,7 +107,13 @@ class GitVersionHelper
     public static function bumpVersion()
     {
         $file = static::versionFile();
-        $version = static::getNameAndVersion();
+
+        // remove file to force create new version
+        if (file_exists($file)) {
+            unlink($file);
+        }
+
+        $version = static::getVersion();
 
         file_put_contents($file, $version);
     }
