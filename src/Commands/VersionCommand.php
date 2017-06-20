@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace Tremby\LaravelGitVersion\Commands;
 
 use Illuminate\Console\Command;
 use Tremby\LaravelGitVersion\GitVersionHelper;
