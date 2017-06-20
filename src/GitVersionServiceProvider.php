@@ -2,8 +2,8 @@
 
 namespace Tremby\LaravelGitVersion;
 
-use App\Console\Commands\VersionCommand;
 use Illuminate\Support\ServiceProvider;
+use Tremby\LaravelGitVersion\Commands\VersionCommand;
 
 class GitVersionServiceProvider extends ServiceProvider
 {
