@@ -22,6 +22,14 @@ Require it in your Laravel project:
 
     composer require okaufmann/laravel-git-version
 
+Install the service provider by adding it to your `config/app.php`
+file:
+
+    'providers' => [
+        ...
+        Tremby\LaravelGitVersion\GitVersionServiceProvider::class,
+    ],
+
 Use
 ---
 
@@ -44,10 +52,10 @@ configure it in your `config/app.php` file or leave it as the default of `app`.
 
 ### Command
 On releasing a new version of you app run the following commands to tag a new version and create a file with the correct version info:
-```commandline
- git tag v0.0.3
- php artisan version:bump
- ```
+
+    git tag v0.0.3
+    php artisan version:bump
+
 
 ### Recommended usage pattern
 
@@ -75,14 +83,6 @@ A view is provided which just outputs an HTML comment with the return value of
 `getNameAndVersion()`. I like to include this in the main layout template of the
 project.
 
-To use this, install the service provider by adding it to your `config/app.php`
-file:
-
-    'providers' => [
-        ...
-        Tremby\LaravelGitVersion\GitVersionServiceProvider::class,
-    ],
-
-Then the view is available:
+The view is available:
 
     @include('git-version::version-comment')
