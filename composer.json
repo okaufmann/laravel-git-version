@@ -26,5 +26,5 @@
               "Tremby\\LaravelGitVersion\\GitVersionServiceProvider"
           ]
       }
-  },
+   }
 }
