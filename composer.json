@@ -19,5 +19,12 @@
         "psr-4": {
             "Tremby\\LaravelGitVersion\\": "src/"
         }
-    }
+    },
+    "extra": {
+      "laravel": {
+          "providers": [
+              "Tremby\\LaravelGitVersion\\GitVersionServiceProvider"
+          ]
+      }
+  },
 }
