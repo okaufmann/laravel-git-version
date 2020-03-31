@@ -1,10 +1,16 @@
 {
     "name": "okaufmann/laravel-git-version",
     "description": "A helper to get the current git version of the application",
+    "type": "package",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "git",
+        "version"
+    ],
     "require": {
         "laravel/framework": ">=4"
     },
-    "license": "MIT",
     "authors": [
         {
             "name": "Bart Nagel",
