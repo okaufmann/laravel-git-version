@@ -18,7 +18,7 @@ class GitVersionHelper
     }
 
     /**
-     * Get the app's version string
+     * Get the app's version string.
      *
      * If a file <base>/version exists, its contents are trimmed and used.
      * Otherwise we get a suitable string from `git describe`.
@@ -58,7 +58,7 @@ class GitVersionHelper
     }
 
     /**
-     * Get a string identifying the app and version
+     * Get a string identifying the app and version.
      *
      * @see getVersion
      * @throws CouldNotGetVersionException if there is no version file and `git
@@ -71,13 +71,12 @@ class GitVersionHelper
     }
 
     /**
-     * Return commit hash with custom length
+     * Return commit hash with custom length.
      *
      * @param null $length
      * @throws CouldNotGetCommitHashException if there is no commit hash and `git
      * rev-parse HEAD` fails
      * @return string
-     *
      */
     public static function getHash($length = null)
     {
